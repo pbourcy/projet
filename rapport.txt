@@ -1,15 +1,24 @@
 # projet
 Rapport par P.B. et C.A.
 
+https://fr.wikipedia.org/wiki/Backgammon
 
+1  2 3 4 5 6 7 8 9 10 11 12
+\/\/\/\/\/\/|\/\/\/\/\/\/|
+            |            |
+            |            |
+/\/\/\/\/\/\|/\/\/\/\/\/\|
+13  15  17   19  21  23
+  14  16  18   20  22  24
 
+Le but de notre projet est de créer une I.A. capable de calculer les coups 2/3 tours en avances et d'utiliser le meilleur de ces coups.
+Pour cela on utilise du C, en créant un arbre de coups possible.
 
-
-
-
-
-
-
+L'idée est de noter chaque coup possible en fonction de son ingéniosité et/ou de l'avantage qu'il donne à la machine.
+Exemple :
+tour n : l'opposant joue.
+tour n+1 : La machine a le choix, un coup qui l'avantage pour le tour suivant en lui donnant un avantage immédiat mais minime.
+                                  un coup qui l'avantage pour le tour n+3 en lui donnant un avantage "maximum".
 
 
 
