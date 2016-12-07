@@ -14,11 +14,68 @@ https://fr.wikipedia.org/wiki/Backgammon
 Le but de notre projet est de créer une I.A. capable de calculer les coups 2/3 tours en avances et d'utiliser le meilleur de ces coups.
 Pour cela on utilise du C, en créant un arbre de coups possible.
 
+On peut utiliser l'itérativité, mais cette méthode n'est pas optimisé, donc lente et inefficace. C'est pourquoi on va opter pour une méthode récursive moins lourde qui va calculer jusqu'a 3 coups a l'avance (aprés 3 coups ça commence à devenir trop lourd, il y a trop de possibilité pour le backgammon).
+
 L'idée est de noter chaque coup possible en fonction de son ingéniosité et/ou de l'avantage qu'il donne à la machine.
 Exemple :
-tour n : l'opposant joue.
-tour n+1 : La machine a le choix, un coup qui l'avantage pour le tour suivant en lui donnant un avantage immédiat mais minime.
-                                  un coup qui l'avantage pour le tour n+3 en lui donnant un avantage "maximum".
+
+tour n : La machine joue, elle a le choix entre 3 coups, n°1, n°2, n°3 qui va chacun produire un nouveau eventail de coup possible.
+tour n+1 : l'opposant joue parmi l'eventail de coup possible produit par le coup au tour n.
+tour n+2 : La machine joue le coup qui l'avantage le plus.
+
+On cherche le coup qui nous avantage le plus.
+Cela veut dire que dans l'arbre des coups possibles, il n'est pas nécéssaire de calculer tous les coups possible aprés le coup n°1 si celui-ci n'est pas le plus intéréssant.
+
+D'ou l'intérét d'utiliser le min/max, puisqu'on ne regarde que la note la plus haute.
+Sauf que l'adversaire va jouer a son tour, au tour n+1, on cherche donc le coup qui nous désavantage le plus (on se mets dans la situation ou le joueur fait des bons coups, on "prévoit" le pire.). Au tour n+2 c'est de nouveau à nous de jouer.
+
+Exemple avec 3 coups possibles :
+
+tour n (nous)                      max
+                                 /  |  \
+                               /    |    \
+                              3     1     5 
+---------------------------------------------------------
+tour n+1 (opposant)          min   min   min
+                           /  |    / \    |  \
+                          4   2   4   1   3   2 
+---------------------------------------------------------
+tour n+2 (nous)          max max max max max max
+                        / |  /\  /\  /\  /\   | \   
+Valeurs des coups:     1  4 3 4 2 1 1 2 1  3  3  1
+
+Ici on va choisir la branche : 
+
+                                   max
+                                      \
+                                        \
+                                         5 
+---------------------------------------------------------
+                                         min
+                                             \
+                                              2 
+---------------------------------------------------------
+                                             max
+                                              |
+                                              3                                   
+
+Car c'est celle qui nous avantage le plus "au final" de 3 coups possible. Bien sur si le le joueur joue autre chose que le meilleur coup possible pour lui, la machine s'adapte.
+
+
+Cela veut dire qu'on calculera uniquement cette partie la de l'arbre, puisque le reste de l'arbre sont des coups qui ne pourront pas être joués : 
+
+                                   max
+                                 /  |  \
+                               /    |    \
+                              3     1     5 
+---------------------------------------------------------
+                                          min
+                                          |  \
+                                          3   2 
+---------------------------------------------------------
+                                         max max
+                                         /\   | \   
+                                        1  3  3  1
 
 
 
@@ -26,8 +83,11 @@ tour n+1 : La machine a le choix, un coup qui l'avantage pour le tour suivant en
 
 
 
+On va donc créer une fonction principale "backtrack", qui va calculer l'éventail de coup possible, donc une fonction min/max.
+Une fonction sera évidémment nécéssaire pour simuler le plateau (ou on utiliser une variable globale), ainsi que les pions et les dées.
+Une fonction pour l'interface graphique.
 
-
+D'autres fonctions peuvent s'ajouter en fonction des besoins du projet au fur et à mesure.
 
 
 
