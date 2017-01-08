@@ -75,6 +75,10 @@ void main ( void ) {
 			*Affiche la ligne de démarcation entre les deux portions du plateau.
 			*/
 			if (h==7) printf("  |") ;
+			
+			/*
+			*On affiche des x, l'implémentation du tableau n'existe pas encore
+			*/
 			else printf("  x") ;
 			
 			/*Test pour afficher le numéro de la case, format [l,h], ex [10,14]
