@@ -93,6 +93,13 @@ void main ( void ) {
 		}
 	}
 	printf("\n\n") ;
+	
+	printf("-----------------------------------------------\n") ;
+	printf("Resultat du lancee de dee : ") ;
+	printf("Dee 1 : %d , dee 2 : %d", lancerDee(), lancerDee()) ;
+	
+	if (n%2=0) printf("C'est a l'ordinateur de jouer.") ;
+	else printf("C'est a vous de jouer.) ;
 }
 
 
