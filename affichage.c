@@ -94,12 +94,18 @@ void main ( void ) {
 	}
 	printf("\n\n") ;
 	
+	/*
+	*Affiche les résultats des dées avec la fonction lancerDee
+	*/
 	printf("-----------------------------------------------\n") ;
 	printf("Resultat du lancee de dee : ") ;
 	printf("Dee 1 : %d , dee 2 : %d", lancerDee(), lancerDee()) ;
 	
+	/*
+	*Si n est pair c'est au tour de L'IA, sinon au joueur.
+	*/
 	if (n%2=0) printf("C'est a l'ordinateur de jouer.") ;
-	else printf("C'est a vous de jouer.) ;
+	else printf("C'est a vous de jouer.") ;
 }
 
 
