@@ -16,8 +16,17 @@ int * plateau ( void ) {
 	for(i=1;i<12;i++)
 		for(j=1;j<10;j++)
 			plateau[j][i] = 0 ; 
-	return *
+	int pointeur* = plateau ; 
+	return pointeur ; 
 }
+
+char pionJoueur ( void ) {
+	return "w" ; 
+}
+	
+char pionAI ( void ) {
+	return "g" ; 
+}	
 
 void main ( void ) {
 	/*Supprime ce qui a été écrit précédemment dans la console, ne fonctionne que pour linux, pour window utiliser system("cls")*/
