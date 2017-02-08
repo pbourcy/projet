@@ -101,6 +101,8 @@ for (x = 0; x < numStudents; x++)
     students[x].year = 1983;
 }
 On a oublié qu'il faut assigner de la mémoire en plus avec malloc, car on a init un tableau et pas un tableau de struct de deux valeurs, le probléme en c qui apparait jamais en python.
+Faudra aussi test avec CP[i].int2val <- valeur 
+
 */
 	
 tTuple Jouable( int de , int j ) //CP = coup possible
