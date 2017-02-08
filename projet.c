@@ -90,6 +90,19 @@ tTuple tableauTuple ( int j ) {
 	return * CP ; //Un truc chelou, return CP fonctionne pas ici mais dans jouable oui
 }
 
+/*
+student* students = malloc(numStudents * sizeof *students);
+for (x = 0; x < numStudents; x++)
+{
+    students[x].firstName = "John"; 
+    students[x].lastName = "Smith"; 
+    students[x].day = 1;
+    students[x].month = 12;
+    students[x].year = 1983;
+}
+On a oublié qu'il faut assigner de la mémoire en plus avec malloc, car on a init un tableau et pas un tableau de struct de deux valeurs, le probléme en c qui apparait jamais en python.
+*/
+	
 tTuple Jouable( int de , int j ) //CP = coup possible
 	{
 		tTuple CP = tableauTuple( j ) ; //j = 15 trés souvent
