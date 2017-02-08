@@ -9,17 +9,6 @@ int lancerDee ( void ) {
 	return dee+1 ;
 }
 
-int * plateau ( void ) {
-	/*Fonction qui crée un plateau de 10*12 
-	Renvoie un pointeur vers la premiére case */
-	int plateau[10][12] ;
-	for(i=1;i<12;i++)
-		for(j=1;j<10;j++)
-			plateau[j][i] = 0 ; 
-	int pointeur* = plateau ; 
-	return pointeur ; 
-}
-
 char pionJoueur ( void ) {
 	return "w" ; 
 }
@@ -28,7 +17,115 @@ char pionAI ( void ) {
 	return "g" ; 
 }	
 
-void main ( void ) {
+void main ( void ) 
+{
+	int i , j ;
+	printf("13 14 15 16 17 18 19 20 2122 23 24") ; //début
+	/*premiére version avec juste des chiffres et non pas des points*/
+	for( i = 0 ; i < 13 ; i++ ) 
+	{
+		if ( echiquier[i] == 0 ) printf("0 ") ;
+		else printf("%d ", echiquier[i] ) ; 
+	}
+	
+	printf("\n") ;
+	printf("\n") ;
+	
+	for( j = 0 ; j < 13 ; j++ ) 
+	{
+		if ( echiquier[j] == 0 ) printf("0") ;
+		else printf("%i", echiquier[i] ) ; 
+	}
+	printf("1  2  3  4  5  6  7  8  9 10 11 12") ; //fin 
+	
+	printf("Nombre de pion mort pour l'ia = %i", pionsMortIA ) ;
+	printf("Nombre de pion mort pour le joueur = %i", pionsMortJoueur ) ;
+
+	if ( conditionPhaseFinale == 1 ) 
+	{
+		printf("On est en fin de partie") ;
+		printf("Le nombre de pions que l'AI a retiré : %i", pionsretireAI ) ;
+		printf("Le nombre de pions que le joueur a retiré : %i", pionsretireJoueur ) ;
+	}
+
+	if (camp == 1) printf("C'est a l'IA de jouer") ;
+	else printf("C'est au tour du joueur") ; 
+}
+
+void main2 ( void )  
+	/*Seconde version*/
+{
+	int i , j ;
+	printf("13 14 15 16 17 18 19 20 2122 23 24") ; //début
+	
+	/*On peut faire sans les 10 for mais c'est trop compliqué pour pas grand chose, juste un print de 10 chiffre va pas alourdir le programme.*/
+	for( j = 0 , j < 6 , j++ ) 
+	{
+		for( i = 0 , i < 13 , i++ ) 
+		{
+			if( echiquier[i] == 0 ) printf("0 ") ; 
+			else printf("%i ", echiquier[i]) ; 
+		}
+		printf("\n") ;
+	}
+
+	printf("\n") ;
+	printf("\n") ;
+
+	for( j = 0 , j < 6 , j++ ) 
+	{
+		for( i = 13 , i < 25 , i++ ) 
+		{
+			if( echiquier[i] == 0 ) printf("0 ") ; 
+			else printf("%i ", echiquier[i]) ; 
+		}
+		printf("\n") ;
+
+	printf("Nombre de pion mort pour l'ia = %i", pionsMortIA ) ;
+	printf("Nombre de pion mort pour le joueur = %i", pionsMortJoueur ) ;
+
+	if ( conditionPhaseFinale == 1 ) 
+	{
+		printf("On est en fin de partie") ;
+		printf("Le nombre de pions que l'AI a retiré : %i", pionsretireAI ) ;
+		printf("Le nombre de pions que le joueur a retiré : %i", pionsretireJoueur ) ;
+	}
+
+	if (camp == 1) printf("C'est a l'IA de jouer") ;
+	else printf("C'est au tour du joueur") ; 
+}
+	}
+
+	printf("1  2  3  4  5  6  7  8  9 10 11 12") ; //fin 
+
+}
+
+
+void autreAffichage ( int de1, int de2 , tTuple CP ) 
+{
+	printf("\n");
+	/* Les dées et les coups possibles qu'on peut afficher dans une différente couleur / char par exemple */
+	printf("Le resultat du de n°1 = %i", de1) ;
+	printf("Le resultat du de n°2 = %i", de2) ;
+
+	/*CP a remettre dans le main affichage, dans la boucle d'affichage*/
+	for( i = 0 ; i < 16 ; i++ ) 
+	{
+		if( echiquier[i] == CP[i].int2val )
+			printf("P ") ;
+	}
+
+	if (conditionVictoire == 1 || camp == 1) 
+		printf("L'IA a gagné") ;
+	else if (conditionVictoire == 1 || camp != 0 ) 
+		printf("L'IA a perdu") ;
+}
+
+
+
+
+//précédente version
+void brouillon ( void ) {
 	/*Supprime ce qui a été écrit précédemment dans la console, ne fonctionne que pour linux, pour window utiliser system("cls")*/
 	printf("\e[1;1H\e[2J");
 	/*l largeur, h hauteur, n numéro du tour.*/
