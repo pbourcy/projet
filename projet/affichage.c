@@ -27,15 +27,14 @@ PointTuple tableauTuple ( int j ) {
 		CoupPossible[i]->depart = 0 ;
 		CoupPossible[i]->arrive = 0 ; 
 	}
-	return * CoupPossible ; //Un truc chelou, return CP fonctionne pas ici mais dans jouable oui
+	return * CoupPossible ; 
 }
 
 void affichage1 ( void ) 
 {
 	int i , j ;
 	int camp = 1 ;
-	printf("13 14 15 16 17 18 19  20 21 22 23 24\n") ; //début
-	/*premiére version avec juste des chiffres et non pas des points*/
+	printf("13 14 15 16 17 18 19  20 21 22 23 24\n") ;
 	for( i = 0 ; i < 13 ; i++ ) 
 	{
 		if ( echiquier[i] == 0 ) printf("0 ") ;
@@ -71,9 +70,7 @@ void affichage1 ( void )
 void affichage2 ( void ) 
 {
 	int i , j , camp = 1 ;
-	printf("13 14 15 16 17 18 19 20 2122 23 24 \n") ; //début
-	
-	/*On peut faire sans les 10 for mais c'est trop compliqué pour pas grand chose, juste un print de 10 chiffre va pas alourdir le programme.*/
+	printf("13 14 15 16 17 18 19 20 2122 23 24 \n") ;
 	for( j = 0 ; j < 6 ; j++ ) 
 	{
 		for( i = 0 ; i < 13 ; i++ ) 
@@ -119,11 +116,9 @@ void autreAffichage ( int de1, int de2 , PointTuple CoupPossible )
 	int pionGagne ;
 	int i ;
 	printf("\n");
-	/* Les dées et les coups possibles qu'on peut afficher dans une différente couleur / char par exemple */
 	printf("Le resultat du de n°1 = %i\n", de1) ;
 	printf("Le resultat du de n°2 = %i\n", de2) ;
 
-	/*CP a remettre dans le main affichage, dans la boucle d'affichage*/
 	for( i = 0 ; i < 16 ; i++ ) 
 	{
 		if( echiquier[i] == CoupPossible[i].arrive )
