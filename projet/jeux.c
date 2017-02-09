@@ -1,3 +1,7 @@
+#define TRUE 1 
+
+/***************************************/
+
 #include <math.h>
 #include <stdio.h>
 
@@ -55,7 +59,6 @@ Tuple coupJoueur( int de1 , int de2 , int deJoue )
 	{
 		l = 30 ;
 		PointTuple CoupPossible = tableauTuple( 30 ) ;
-		//CP = concatenation( CP1 , CP2 , CP ) ;
 		for( k = 1 ; k < 31 ; k++ )
 			{
 			if ( k >= 16 ) CoupPossible[ k ] = CoupPossibleDe2[ k ] ;
@@ -68,7 +71,7 @@ Tuple coupJoueur( int de1 , int de2 , int deJoue )
 			printf("N°%i - Case depart : %i et case d'arrive : %i", i , departi , arrivei ) ;
 		}
 
-		while(TRUE) //define TRUE 1 
+		while(TRUE) 
 		{
 			scanf("Entrer le numero du coup que vous voulez jouer %i", &x ) ; 
 			if ((x > 0) && (i > x))
