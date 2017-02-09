@@ -41,9 +41,9 @@ int conditionVictoire( int pionsRentreAI , int pionsRentreJoueur , int camp )
 	else return( -1 ) ;
 }
 
-PointTuple Jouable( int de , int j ) //CP = coup possible
+PointTuple Jouable( int de , int j )
 {
-	PointTuple CoupPossible = tableauTuple( j ) ; //j = 15 trés souvent
+	PointTuple CoupPossible = tableauTuple( j ) ; 
 	int camp = 1 ; 
 	int i , a ;
 	if ( pionsMortJoueur >= 1 && pionsMortAI )
@@ -52,12 +52,12 @@ PointTuple Jouable( int de , int j ) //CP = coup possible
 			int a = deplacement_possible( de, i, 1 ) ; 
 			if ( a == 1 ) 
 			{
-				if (camp == 1) //joueur
+				if (camp == 1) 
 				{
 					CoupPossible[0].depart = 0 ;
-					CoupPossible[0].arrive = i + de ; //y'a un truc qui va pas avec le cp.int2val
+					CoupPossible[0].arrive = i + de ; 
 				}
-				else // l'ia psk -1 
+				else 
 				{
 					CoupPossible[0].depart = 25 ;
 					CoupPossible[0].arrive = 25 - i - de ;
@@ -68,9 +68,9 @@ PointTuple Jouable( int de , int j ) //CP = coup possible
 	{
 		for( i = 1 ; i<25 ; i++ ) 
 		{
-			if ( (echiquier[ i + 1 ] > 0) || (camp == 1) )  //joueur
+			if ( (echiquier[ i + 1 ] > 0) || (camp == 1) )
 			{
-				a = deplacement_possible ( de , i, 1 ) ; //faut remplacer le 1 et -1 par qqchose
+				a = deplacement_possible ( de , i, 1 ) ;
 				if ( a == 1 ) 
 					{
 						CoupPossible[i].depart = i ;
