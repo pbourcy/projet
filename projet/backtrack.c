@@ -21,14 +21,14 @@ int backtrack ( int prof )
 	int i , j ;
 	PointTuple CoupPossible = tableauTuple( j ) ; //j = 15 trés souvent
 	
-	int tmp , prof_max = 3 ; // ou max faut voir
+	int tmp , prof_max = 3 ;
 
 	if ( prof < prof_max ) 
 	{
-		for ( i = 0 ; i < sizeof(CoupPossible) ; i++ ) // for c € C :  pour i dans la liste de coup, donc on fait une boucle qui donne pour chaque coup
+		for ( i = 0 ; i < sizeof(CoupPossible) ; i++ )
 		{
 			Tuple coup = CoupPossible[i] ;
-			play( coup , camp ) ; //on va ajouter 1 ou -1 a  la case i+de 
+			play( coup , camp ) ; 
 			valeur = backtrack( prof + 1 ) ;
 
 			if (camp)
@@ -36,13 +36,13 @@ int backtrack ( int prof )
 			else
 				tmp = Max( tmp , valeur , CoupPossible ) ; 
 
-			deplay( coup , camp ) ; //on va retirer 1 ou -1 a la case i+de
+			deplay( coup , camp ) ; 
 		}
 		return tmp ; 
 	}
-	else //prof_max ~ feuille
+	else
 	{
-		valeur = evaluation( camp , pionsRentreAI , pionsRentreJoueur ) ;//echiquier ( donc fonction evaluation())
+		valeur = evaluation( camp , pionsRentreAI , pionsRentreJoueur ) ;
 		return valeur ;
 	}
 }
